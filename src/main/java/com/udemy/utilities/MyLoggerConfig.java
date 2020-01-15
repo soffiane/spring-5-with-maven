@@ -11,6 +11,12 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
  * In Spring 5.1, the Spring Development team changed the logging levels internally. 
  * As a result, by default you will no longer see the red logging messages at the INFO level.
  * We have to create a logging bean and let Spring manage it
+ * 
+ * OR
+ * 
+ * you can use the default logger : log4j
+ * add it to the classpath and just create a correct log4j2.xml (or properties) file
+ * 
  * @author soffiane
  *
  */

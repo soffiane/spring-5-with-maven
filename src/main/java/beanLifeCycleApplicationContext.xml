@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans.xsd
+	http://www.springframework.org/schema/context 
+	http://www.springframework.org/schema/context/spring-context.xsd">
+
+	<!-- Add a logger config to see logging messages. Default "FINE" - For more 
+		detailed logs, set values to "FINEST" - For info on logging levels, see: 
+		http://www.vogella.com/tutorials/Logging/article.html -->
+	<bean id="myLoggerConfig"
+		class="com.udemy.utilities.MyLoggerConfig" init-method="initLogger">
+		<property name="rootLoggerLevel" value="FINEST" />
+		<property name="printedLoggerLevel" value="FINEST" />
+	</bean>
+
+	<!-- define dependancy for Coach bean -->
+	<bean id="myFortune"
+		class="com.udemy.dependancyinjection.HappyFortuneService" />
+
+	<!-- define a spring bean with init and destroy method-->
+	<bean id="myCoach" class="com.udemy.inversionofcontrol.TrackCoach" init-method="doMyStartStuff" destroy-method="doMyCleanupStuff">
+		<!-- injection by constructor with id of the Bean -->
+		<constructor-arg ref="myFortune" />
+	</bean>
+</beans>

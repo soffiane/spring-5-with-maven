@@ -23,6 +23,7 @@ public class CricketCoach implements Coach {
 	private String firstname;
 	private String lastname;
 
+	
 	// create a no-arg constructeur -needed for the setter injection
 	public CricketCoach() {
 		System.out.println("CricketCoach : Spring calling the no-arg constructor");
